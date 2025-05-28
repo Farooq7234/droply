@@ -1,8 +1,5 @@
-import { integer, pgTable, text, uuid } from 'drizzle-orm/pg-core';
+import { integer, pgTable, text, uuid, boolean, timestamp } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
-import { boolean, timestamp } from 'drizzle-orm/gel-core';
-
-
 
 export const files = pgTable('files', {
     id: uuid('id').defaultRandom().primaryKey(),
@@ -11,11 +8,9 @@ export const files = pgTable('files', {
     size: integer('size').notNull(),
     type: text('type').notNull(), // "folder"
 
-
     //storage information
     fileUrl: text('file_url'), // url to access the file
     thumbnailUrl: text('thumbnail_url'),
-
 
     // Owner information
     userId: text('user_id').notNull(),
